@@ -10,6 +10,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
@@ -17,7 +20,7 @@
         <h2>Information</h2>
       </div>
 
-      <form class="form" id="form">
+      <form class="form" id="inputForm" method="post">
         <div class="form-control">
           <label>Username</label>
           <input
@@ -33,7 +36,7 @@
         <div class="form-control">
           <label>Email</label>
           <input
-            type="email"
+            type="text"
             name="email"
             placeholder="Enter Your Email"
             id="Email"
@@ -54,6 +57,8 @@
           <i class="fa-solid fa-circle-exclamation"></i>
           <small>Error Msg</small>
         </div>
+
+
         <div class="form-control">
           <label>Address</label>
           <input
@@ -67,10 +72,55 @@
           <small>Error Msg</small>
         </div>
 
+
+        <div class="form-control">
+          <label>Date</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+          />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>Error Msg</small>
+        </div>
+
+        
+        <div class="form-control">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Your Password"
+            id="password"
+          />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>Error Msg</small>
+        </div>
+        
+        <div class="form-control">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            name="passwordC"
+            placeholder="Enter Your password again"
+            id="passwordC"
+          />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>Error Msg</small>
+        </div>
+
+
         <input type="submit" value="Submit" name="" class="saveBtn" />
       </form>
     </div>
 
+
+
     <script src="./main.js"></script>
+
+    
   </body>
 </html>
