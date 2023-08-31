@@ -107,7 +107,6 @@ function validate() {
 }
 
 // Error Message fn
-
 function setErrorMsg(input, errorMsg) {
   const formControl = input.parentElement;
   const small = formControl.querySelector("small");
@@ -115,17 +114,19 @@ function setErrorMsg(input, errorMsg) {
 
   formControl.className = "form-control error";
   small.innerText = `${inputLabel}  ${errorMsg}`;
+
+  input.onblur = function (e) {
+    formControl.className = "form-control ";
+  };
 }
 
 // success message fn
-
 function setSuccessMsg(input) {
   const formControl = input.parentElement;
   formControl.className = "form-control success";
 }
 
 // form submition listener
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -135,7 +136,6 @@ form.addEventListener("submit", (e) => {
 });
 
 // form save alert
-
 function save() {
   let dataStr = $("#inputForm").serialize();
 
