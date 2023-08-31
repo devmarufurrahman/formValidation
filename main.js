@@ -6,6 +6,7 @@ const address = document.getElementById("Address");
 const password = document.getElementById("password");
 const passwordC = document.getElementById("passwordC");
 const date = document.getElementById("date");
+const gender = document.getElementById("gender");
 
 // error message variable
 let minChar = "min char ";
@@ -25,7 +26,6 @@ function isEmail(emailVal) {
 }
 
 // validate function
-
 function validate() {
   const nameVal = names.value.trim();
   const emailVal = email.value.trim();
@@ -34,6 +34,8 @@ function validate() {
   const passwordVal = password.value.trim();
   const passwordCVal = passwordC.value.trim();
   const dateVal = date.value;
+  const genderVal = gender.value;
+  console.log(genderVal);
 
   // validate userName
   if (nameVal === "") {
@@ -76,6 +78,13 @@ function validate() {
     setErrorMsg(date, notBlank);
   } else {
     setSuccessMsg(date);
+  }
+
+  // validate gender
+  if (genderVal === "") {
+    setErrorMsg(gender, notBlank);
+  } else {
+    setSuccessMsg(gender);
   }
 
   // validate password
