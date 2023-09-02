@@ -101,9 +101,19 @@ function validate() {
     setErrorMsg(passwordC, notBlank);
   } else if (passwordVal !== passwordCVal) {
     setErrorMsg(passwordC, passNotMatch);
+  } else if (passwordC.onchange) {
   } else {
     setSuccessMsg(passwordC);
   }
+
+  passwordC.onchange = function (e) {
+    if (e.target.value === passwordVal) {
+      passwordC.onblur = function (e) {
+        let formControl = passwordC.parentElement;
+        formControl.className = "form-control ";
+      };
+    }
+  };
 }
 
 // Error Message fn
@@ -115,8 +125,16 @@ function setErrorMsg(input, errorMsg) {
   formControl.className = "form-control error";
   small.innerText = `${inputLabel}  ${errorMsg}`;
 
-  input.onblur = function (e) {
-    formControl.className = "form-control ";
+  input.onchange = function (e) {
+    var onChanges = e.target.value;
+
+    if (onChanges.length >= 3) {
+      input.onblur = function (e) {
+        formControl.className = "form-control ";
+      };
+
+      // formControl.className = "form-control ";
+    }
   };
 }
 
@@ -132,7 +150,7 @@ form.addEventListener("submit", (e) => {
 
   validate();
 
-  save();
+  // save();
 });
 
 // form save alert
